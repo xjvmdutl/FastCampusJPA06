@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class BookServiceTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.service.BookService bookService;
+    private BookService bookService;
 
     @Autowired
     private BookRepository bookRepository;

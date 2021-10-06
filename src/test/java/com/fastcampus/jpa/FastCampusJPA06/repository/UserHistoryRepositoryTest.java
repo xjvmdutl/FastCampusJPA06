@@ -12,10 +12,10 @@ import java.util.List;
 @SpringBootTest
 public class UserHistoryRepositoryTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.UserHistoryRepository userHistoryRepository;
+    private UserHistoryRepository userHistoryRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Test
     public void userHistoryTest(){

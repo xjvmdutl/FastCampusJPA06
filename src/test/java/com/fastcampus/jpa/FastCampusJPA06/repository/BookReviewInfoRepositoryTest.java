@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class BookReviewInfoRepositoryTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookReviewInfoRepository bookReviewInfoRepository;
+    private BookReviewInfoRepository bookReviewInfoRepository;
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookRepository bookRepository;
+    private BookRepository bookRepository;
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.PublisherRepository publisherRepository;
+    private PublisherRepository publisherRepository;
 
     @Test
     public void crudTest(){

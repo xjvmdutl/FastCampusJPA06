@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest
 class AuthorRepositoryTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.AuthorRepository authorRepository;
+    private AuthorRepository authorRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookAndAuthorRepository bookAndAuthorRepository;
+    private BookAndAuthorRepository bookAndAuthorRepository;
 
     @Test
     @Transactional

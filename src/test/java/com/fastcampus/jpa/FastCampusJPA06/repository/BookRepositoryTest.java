@@ -12,8 +12,9 @@ import java.util.List;
 
 @SpringBootTest
 public class BookRepositoryTest {
+
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookRepository bookRepository;
+    private BookRepository bookRepository;
 
 
     @Test

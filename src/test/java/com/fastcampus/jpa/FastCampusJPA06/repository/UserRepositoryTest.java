@@ -18,10 +18,10 @@ import java.time.LocalDateTime;
 @Transactional
 class UserRepositoryTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.UserHistoryRepository userHistoryRepository;
+    private UserHistoryRepository userHistoryRepository;
 
     @Autowired
     private EntityManager entityManager;

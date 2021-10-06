@@ -35,7 +35,7 @@ public class User extends BaseEntity {
     private Gender gender;
 
     @Builder.Default
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)//LAZY는 필요할 때 데이터를 가지고 온다(영속성 컨텍스트가 해당 데이터를 가지고 있을때)
     @JoinColumn(name = "user_id",insertable = false,updatable = false)
     @ToString.Exclude
     private List<UserHistory> userHistories = new ArrayList<>();//1,2,3,4,5,6 값을 배열 데이터

@@ -9,19 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @SpringBootTest
 public class ReviewRepositoryTest {
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.BookRepository bookRepository;
+    private BookRepository bookRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.ReviewRepository reviewRepository;
+    private ReviewRepository reviewRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    private com.fastcampus.jpa.FastCampusJPA06.repository.PublisherRepository publisherRepository;
+    private PublisherRepository publisherRepository;
 
     @Test
     @Transactional
@@ -64,4 +66,32 @@ public class ReviewRepositoryTest {
 
         reviewRepository.save(review);
     }
+
+    @Test
+    @Transactional
+    public void reviewTest(){
+
+
+        List<Review> reviews = reviewRepository.findAll();
+
+        //리뷰쿼리 한개에 N개의 Comment쿼리가 발생한다.
+        //System.out.println(reviews);
+        /*
+        System.out.println("전체를 가지고 왔습니다.");
+
+        System.out.println(reviews.get(0).getComments());
+
+        System.out.println("첫번째 리뷰의 코멘트들을 가지고 왔습니다.");
+
+        System.out.println(reviews.get(1).getComments());
+
+        System.out.println("두번째 리뷰의 코멘트들을 가지고 왔습니다.");
+        */
+
+
+        //List<Review> reviews = reviewRepository.findAllByFetchJoin();
+        //List<Review> reviews = reviewRepository.findAllByEntityGraph();
+        reviews.forEach(System.out::println);
+    }
+
 }
