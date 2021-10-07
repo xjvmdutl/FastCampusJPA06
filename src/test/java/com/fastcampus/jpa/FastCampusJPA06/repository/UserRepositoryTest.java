@@ -14,6 +14,9 @@ import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
+
 @SpringBootTest
 @Transactional
 class UserRepositoryTest {
@@ -173,13 +176,18 @@ class UserRepositoryTest {
 
         userRepository.save(user2);
 
-        entityManager.clear();
+        entityManager.clear();//영속성 케시를 지우게 되면 오류가 발생한다.
+        //영속성 케시에서 가지고 있는 객체와 DB 레코드가 다르다.
 
         userRepository.findAll().forEach(System.out::println);
         userHistoryRepository.findAll().forEach(System.out::println);
 
         userRepository.findAllRowRecord().forEach(a-> System.out.println(a.values()));
 
+        assertAll(
+            ()->assertThat(userRepository.findById(7L).get().getHomeAddress()).isNull(),
+            ()->assertThat(userRepository.findById(8L).get().getHomeAddress()).isInstanceOf(Address.class)
+        );
    }
 
 }
